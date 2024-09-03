@@ -1,116 +1,103 @@
-// 1. Introdução às Funções
+// Funções
+// Modularizar o código
 
-// Função Nomeada sem Parâmetros
-function saudacao() {
-  console.log("Olá, Mundo!");
+// function NOME(ARG1, ARG2, ARGN...) { EXC.}
+
+// Parametros/argumentos são opcionais
+function digaOi() {
+  console.log("Oi! tudo bem?");
 }
-saudacao(); // Chama a função
-// Saída: Olá, Mundo!
 
-// 2. Funções com Parâmetros
+// EXECUTAR/INVOCAR/CHAMAR
+digaOi();
+digaOi();
 
-// Função Nomeada com Parâmetros
-function cumprimentar(nome) {
-  console.log("Olá, " + nome + "!");
-}
-cumprimentar("Matheus"); // Chama a função com argumento "Matheus"
-// Saída: Olá, Matheus!
+// Argumentos
 
-// Função Nomeada com Múltiplos Parâmetros
+// os parametros podem ser de qlqr tipo
 function soma(a, b) {
-  console.log("Soma:", a + b);
+  const soma = a + b;
+
+  console.log("Soma: " + soma);
 }
-soma(5, 10); // Chama a função com argumentos 5 e 10
-// Saída: Soma: 15
 
-// 3. Funções com Retorno de Valor
+soma(2, 4);
 
-// Função Nomeada com Retorno
-function multiplicar(a, b) {
-  return a * b;
+soma(8, 20);
+
+// Return -> o retorno de dados de uma funcao
+// return x
+
+function multiplicacao(a, b) {
+  const mult = a * b;
+
+  return mult;
 }
-let resultado = multiplicar(4, 5); // Armazena o valor retornado
-console.log("Resultado da Multiplicação:", resultado);
-// Saída: Resultado da Multiplicação: 20
 
-// Função sem Retorno (Undefined)
-function exibirMensagem() {
-  console.log("Essa função não retorna valor.");
-}
-let valorRetornado = exibirMensagem(); // Não há valor retornado
-console.log("Valor Retornado:", valorRetornado); // Undefined
-// Saída: Essa função não retorna valor.
-// Saída: Valor Retornado: undefined
+// function multiplicacao() {
+//   console.log("oi");
+// }
 
-// 4. Funções Anônimas
+const resultado = multiplicacao(2, 2);
 
-// Função Anônima atribuída a uma variável
-let somar = function (a, b) {
-  return a + b;
+console.log(resultado);
+
+const somaDois = resultado + 10;
+
+console.log(somaDois);
+
+// A função
+// - Não precisa de parametro
+// - Não precisa de retorno
+
+// Função anonima
+const saudacao = function (nome) {
+  console.log("Olá " + nome);
 };
-console.log("Soma com Função Anônima:", somar(3, 7));
-// Saída: Soma com Função Anônima: 10
 
-// Função Anônima como Callback
+saudacao("Matheus");
+
+// Função anonima 2: callback, cb
+// é executar uma função como argumento
 function operacao(a, b, callback) {
+  console.log("Realizando operação...");
   return callback(a, b);
 }
-let resultadoOperacao = operacao(8, 2, function (x, y) {
+
+let resultadoOperacao = operacao(10, 8, soma);
+
+console.log(resultadoOperacao);
+
+let resultadoDois = operacao(5, 5, function (x, y) {
   return x - y;
 });
-console.log("Resultado da Operação com Callback:", resultadoOperacao);
-// Saída: Resultado da Operação com Callback: 6
 
-// 5. Arrow Functions
+console.log(resultadoDois);
 
-// Arrow Function Básica
-let dividir = (a, b) => {
+// Arrow functions ou Funções de flecha
+// com uma sintaxe menor
+
+// (arg1, arg2) => {}
+const dividir = (a, b) => {
   return a / b;
 };
-console.log("Divisão com Arrow Function:", dividir(10, 2));
-// Saída: Divisão com Arrow Function: 5
 
-// Arrow Function com Retorno Implícito (sem chaves)
-let dobrar = (x) => x * 2;
-console.log("Dobro do Número:", dobrar(5));
-// Saída: Dobro do Número: 10
+console.log(dividir(10, 5));
 
-// Arrow Function sem Parâmetros
-let mensagem = () => console.log("Essa é uma Arrow Function sem parâmetros.");
-mensagem(); // Chama a função
-// Saída: Essa é uma Arrow Function sem parâmetros.
+const multiplicacaoArrow = (a, b) => a * b;
 
-// 6. Exemplo Prático: Calculadora com Funções
+// quando ela só tem uma linha, n precisa de:
+// {}
+// return
 
-// Funções Básicas de uma Calculadora
-function adicionar(a, b) {
-  return a + b;
-}
-function subtrair(a, b) {
-  return a - b;
-}
-function multiplicar(a, b) {
-  return a * b;
-}
-function dividir(a, b) {
-  if (b === 0) {
-    return "Divisão por zero não é permitida!";
-  }
-  return a / b;
-}
+console.log(multiplicacaoArrow(10, 10));
 
-// Uso das Funções da Calculadora
-let numero1 = 20;
-let numero2 = 5;
+const msg = () => console.log("Testando");
 
-console.log("Adição:", adicionar(numero1, numero2)); // Saída: 25
-console.log("Subtração:", subtrair(numero1, numero2)); // Saída: 15
-console.log("Multiplicação:", multiplicar(numero1, numero2)); // Saída: 100
-console.log("Divisão:", dividir(numero1, numero2)); // Saída: 4
+msg();
 
-// Exemplo Prático: Funções com Vários Tipos de Retorno
-
-function obterTipoDeDado(valor) {
+// função que detecta o tipo do dado
+function detectarTipo(valor) {
   if (typeof valor === "string") {
     return "String";
   } else if (typeof valor === "number") {
@@ -121,6 +108,17 @@ function obterTipoDeDado(valor) {
     return "Tipo desconhecido";
   }
 }
-console.log("Tipo de 'Hello':", obterTipoDeDado("Hello")); // Saída: String
-console.log("Tipo de 123:", obterTipoDeDado(123)); // Saída: Number
-console.log("Tipo de true:", obterTipoDeDado(true)); // Saída: Boolean
+
+console.log(detectarTipo("teste"));
+console.log(detectarTipo(false));
+console.log(detectarTipo(5));
+
+// Condicional ternária
+
+// cond/expressão ? TRUE : FALSE
+
+const idade = 15;
+
+const ehMaiorDeIdade = idade >= 18 ? "É maior" : "Não é maior";
+
+console.log(ehMaiorDeIdade);

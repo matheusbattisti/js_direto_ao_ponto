@@ -1,96 +1,129 @@
-// 1. Loop For
+// for -> mais comum
 
-// Loop for básico: iterando de 0 a 4
-for (let i = 0; i < 5; i++) {
-  console.log("Loop For - Iteração:", i);
+// estrutura de repetição = loop
+// executa N vezes um código
+
+// for(INCREMENTO; CONDICAO; INCR.) {}
+
+// Incremento = i = 0, j, k, m
+// Condição = i < 10
+// Incrementador = i++ (cada loop, soma um)
+
+// loop que itere de 0 até 4
+for (let i = 0; i <= 4; i++) {
+  console.log("Loop for - o i é: " + i);
 }
-// Saída:
-// Loop For - Iteração: 0
-// Loop For - Iteração: 1
-// Loop For - Iteração: 2
-// Loop For - Iteração: 3
-// Loop For - Iteração: 4
 
-// Loop For com Array
-let frutas = ["Maçã", "Banana", "Laranja"];
+// arrays = listas
+// contém geralmentes itens do mesmo tipo de dado
+// lista de strings, de numeros...
+
+const frutas = ["Maçã", "Banana", "Laranja", "Uva"];
+
+console.log(frutas);
+
+// arrays são zero based
+console.log(frutas[0]);
+console.log(frutas[1]);
+
+// i => 0, i => 1, i => 2
+for (let i = 0; i < 3; i++) {
+  console.log("Fruta: " + frutas[i]);
+}
+
+// lista.length => qtd de elementos
 for (let i = 0; i < frutas.length; i++) {
-  console.log("Fruta:", frutas[i]);
+  console.log("Fruta: " + frutas[i]);
 }
-// Saída:
-// Fruta: Maçã
-// Fruta: Banana
-// Fruta: Laranja
 
-// 2. Loop While
+// while
 
-// Loop While básico: iterando até 5
-let contador = 0;
-while (contador < 5) {
-  console.log("Loop While - Contador:", contador);
-  contador++;
+// não sabe a condição
+let p = 0;
+
+while (p < 5) {
+  console.log("Loop while: " + p);
+
+  p++;
 }
-// Saída:
-// Loop While - Contador: 0
-// Loop While - Contador: 1
-// Loop While - Contador: 2
-// Loop While - Contador: 3
-// Loop While - Contador: 4
 
-// 3. Loop Do...While
+let aleatorio = 0;
 
-// Loop Do...While básico: executa pelo menos uma vez
-let numero = 0;
+// console.log(Math.floor(Math.random() * 10) + 1);
+
+while (aleatorio != 10) {
+  aleatorio = Math.floor(Math.random() * 10) + 1;
+
+  console.log("Num. aleatório:  " + aleatorio);
+}
+
+// while = qnd eu nao sei qnd vai acabar
+
+// do while
+
+// while que garante 1 execução
+
+while (1 > 2) {
+  console.log("teste");
+}
+
 do {
-  console.log("Loop Do...While - Número:", numero);
-  numero++;
-} while (numero < 5);
-// Saída:
-// Loop Do...While - Número: 0
-// Loop Do...While - Número: 1
-// Loop Do...While - Número: 2
-// Loop Do...While - Número: 3
-// Loop Do...While - Número: 4
+  console.log("teste do while");
+} while (1 > 2);
 
-// 4. Exemplo Prático: Somando Números Pares com For
+var j = 0;
 
-let somaPares = 0;
-for (let i = 1; i <= 10; i++) {
+// Super incomum, chance de tu ver beira a 0
+do {
+  console.log("J: " + j);
+
+  j++;
+} while (j < 10);
+
+// No q eu focaria? Aprender bem o for
+
+// Condicionais e loops
+
+// Soma de numeros pares de 0 a 20
+
+let soma = 0;
+let somaImpar = 0;
+
+// 2 % 2 = 0; 3 % 2 = 1; 4 % 2 = 0; 5 % 2 = 1
+
+for (let i = 0; i <= 20; i++) {
+  // verificar numeros pares
   if (i % 2 === 0) {
-    // Verifica se o número é par
-    somaPares += i;
+    soma += i;
+  } else {
+    somaImpar += i;
   }
 }
-console.log("Soma dos Números Pares de 1 a 10:", somaPares); // Saída: 30
 
-// 5. Exemplo Prático: Verificando Condição com While
+console.log(soma);
+console.log(somaImpar);
 
-let saldo = 100;
-while (saldo > 0) {
-  console.log("Saldo atual:", saldo);
-  saldo -= 20; // Reduz 20 a cada iteração
-}
-// Saída:
-// Saldo atual: 100
-// Saldo atual: 80
-// Saldo atual: 60
-// Saldo atual: 40
-// Saldo atual: 20
+// Contar qts consoantes tem na palavra
 
-// 6. Exemplo Prático: Geração de Número Aleatório com Do...While
+const palavra = "Javascript";
 
-let aleatorio;
-do {
-  aleatorio = Math.floor(Math.random() * 10) + 1; // Gera um número entre 1 e 10
-  console.log("Número Gerado:", aleatorio);
-} while (aleatorio !== 5); // Continua até que o número gerado seja 5
-// Saída: (Varia de acordo com a execução, mas continua até gerar o número 5)
-
-// Exemplo Prático: Contando Consoantes em uma Palavra
-
-let palavra = "JavaScript";
 let consoantes = 0;
+
+// textos são parecidos com arrays
+// cada letra é um elemento
+
+console.log(palavra[0]);
+console.log(palavra.length);
+
+// case sentitive
+// A == a > false, a == a > true
+console.log(palavra[0].toLowerCase() == "j");
+
+// JavaScript é case sensitive
+
 for (let i = 0; i < palavra.length; i++) {
   let letra = palavra[i].toLowerCase();
+
   if (
     letra !== "a" &&
     letra !== "e" &&
@@ -101,4 +134,9 @@ for (let i = 0; i < palavra.length; i++) {
     consoantes++;
   }
 }
-console.log("Número de Consoantes em 'JavaScript':", consoantes); // Saída: 7
+
+console.log("Contagem de consoantes " + consoantes + " da palavra " + palavra);
+
+// Inteporlação de strings
+
+console.log(`Contagem de consoantes ${consoantes} da palavra ${palavra}`);
