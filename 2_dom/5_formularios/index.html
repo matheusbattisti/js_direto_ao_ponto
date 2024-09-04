@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interação com Formulários</title>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <h1>Cadastro de Usuário</h1>
+    <form id="form-cadastro">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" />
+      <span class="erro" id="erro-nome"></span>
+      <br /><br />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" />
+      <span class="erro" id="erro-email"></span>
+      <br /><br />
+
+      <label for="senha">Senha:</label>
+      <input type="password" id="senha" name="senha" minlength="6" />
+      <span class="erro" id="erro-senha"></span>
+      <br /><br />
+
+      <label for="confirmar-senha">Confirmar Senha:</label>
+      <input
+        type="password"
+        id="confirmar-senha"
+        name="confirmar-senha"
+        minlength="6"
+      />
+      <span class="erro" id="erro-confirmar-senha"></span>
+      <br /><br />
+
+      <label for="telefone">Telefone:</label>
+      <input
+        type="tel"
+        id="telefone"
+        name="telefone"
+        placeholder="(XX) XXXXX-XXXX"
+      />
+      <span class="erro" id="erro-telefone"></span>
+      <br /><br />
+
+      <label for="data-nascimento">Data de Nascimento:</label>
+      <input type="date" id="data-nascimento" name="data-nascimento" />
+      <span class="erro" id="erro-data-nascimento"></span>
+      <br /><br />
+
+      <label for="cpf">CPF:</label>
+      <input type="text" id="cpf" name="cpf" placeholder="XXX.XXX.XXX-XX" />
+      <span class="erro" id="erro-cpf"></span>
+      <br /><br />
+
+      <label for="endereco">Endereço:</label>
+      <input type="text" id="endereco" name="endereco" />
+      <span class="erro" id="erro-endereco"></span>
+      <br /><br />
+
+      <label for="cidade">Cidade:</label>
+      <input type="text" id="cidade" name="cidade" />
+      <span class="erro" id="erro-cidade"></span>
+      <br /><br />
+
+      <label for="estado">Estado:</label>
+      <select id="estado" name="estado">
+        <option value="">Selecione o Estado</option>
+        <option value="SP">São Paulo</option>
+        <option value="RJ">Rio de Janeiro</option>
+        <option value="MG">Minas Gerais</option>
+        <!-- Outros estados aqui -->
+      </select>
+      <span class="erro" id="erro-estado"></span>
+      <br /><br />
+
+      <label for="genero">Gênero:</label>
+      <input type="radio" id="masculino" name="genero" value="masculino" />
+      <label for="masculino">Masculino</label>
+      <input type="radio" id="feminino" name="genero" value="feminino" />
+      <label for="feminino">Feminino</label>
+      <input type="radio" id="outro" name="genero" value="outro" />
+      <label for="outro">Outro</label>
+      <span class="erro" id="erro-genero"></span>
+      <br /><br />
+
+      <label for="termos">Aceito os termos e condições</label>
+      <input type="checkbox" id="termos" name="termos" />
+      <span class="erro" id="erro-termos"></span>
+      <br /><br />
+
+      <button type="submit">Cadastrar</button>
+    </form>
+    <p id="mensagem"></p>
+  </body>
+</html>
